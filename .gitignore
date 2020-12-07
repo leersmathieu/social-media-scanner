@@ -297,3 +297,7 @@ fabric.properties
 .idea/modules.xml
 .idea/social-media-bot.iml
 .idea/vcs.xml
+
+.idea
+
+docker-compose.yml
