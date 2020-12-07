@@ -6,7 +6,7 @@ from src.config import config
 
 class TweeterBot:
 
-    def __init__(self, retweet_frequency: int = config.time_of_publish, max_tweets: int = 1000):
+    def __init__(self, retweet_frequency: int = config.twitter.time_of_publish, max_tweets: int = 1000):
 
         # Authenticate to Twitter
         auth = tweepy.OAuthHandler(config.twitter.api_key, config.twitter.api_secret)
@@ -50,7 +50,7 @@ class TweeterBot:
             raw_tweets = []
 
             for term in self.topics:
-                raw_tweets += self.api.search(term, lang=config.language, result_type='recent', count=self.max_tweets)
+                raw_tweets += self.api.search(term, lang=config.twitter.language, result_type='recent', count=self.max_tweets)
 
         # Stop execution if an error occurred
         except Exception as error:
