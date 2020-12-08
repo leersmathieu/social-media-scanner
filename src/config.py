@@ -1,11 +1,9 @@
-
 from dataclasses import dataclass
 from os import environ
 
 
 @dataclass
 class TweeterConfig:
-
     # Twitter API public and private key
     api_key = environ.get('TWITTER_API_KEY')
     api_secret = environ.get('TWITTER_API_SECRET')
@@ -18,19 +16,21 @@ class TweeterConfig:
     time_of_publish = 30
     language = 'fr'
 
-
     topics = [
-        'Video game',
         'Payday2',
+        'Payday',
+        'Coding',
+        'programmation',
         'Deep Learning',
         'Machine Learning',
-        'Computer'
+        'Video game',
+        'Computer',
+        'bot'
     ]
 
 
 @dataclass
 class Config:
-
     twitter = TweeterConfig()
 
 

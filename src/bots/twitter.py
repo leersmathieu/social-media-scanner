@@ -1,5 +1,6 @@
 import tweepy
 import schedule
+from typing import Union
 from datetime import datetime, timedelta, timezone
 from src.config import config
 
@@ -74,8 +75,7 @@ class TweeterBot:
                     found_tweets.append(tweet)
 
             # Retweet the most liked/retweeted tweet
-            tweet = max(found_tweets, key=self.__math_tweet_popularity)
-            self.__retweet(tweet)
+            self.__retweet(self.__get_best_tweet(found_tweets))
 
     @staticmethod
     def __sanitize(tweets: list):
@@ -123,7 +123,7 @@ class TweeterBot:
         return datetime.strptime(text, '%a %b %d %H:%M:%S %z %Y')
 
     @staticmethod
-    def __math_tweet_popularity(tweet: dict) -> int:
+    def __get_best_tweet(found_tweets: list) -> Union[dict, None]:
         """
         Math the popularity of a tweet by summing and returning the
         amount and favorite and retweet.
@@ -134,4 +134,12 @@ class TweeterBot:
         :return: The sum of favorites and retweets
         :rtype: int
         """
-        return int(tweet['favorite_count']) + int(tweet['retweet_count'])
+
+        def math_tweet_popularity(tweet):
+            return int(tweet['favorite_count']) + int(tweet['retweet_count'])
+
+        try:
+            return max(found_tweets, key=math_tweet_popularity)
+
+        except Exception as error:
+            print("Best tweet retrieving error: ", error)
