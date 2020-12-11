@@ -18,14 +18,15 @@ class TweeterConfig:
 
     topics = [
         'Payday2',
-        'Payday',
-        'Coding',
-        'programmation',
-        'Deep Learning',
-        'Machine Learning',
-        'Video game',
-        'Computer',
-        'bot'
+        'coding',
+        'coder',
+        'deep Learning',
+        'machine Learning',
+        'jeux vidéo',
+        'bot',
+        'Intelligence artificiel',
+        'python',
+        'javascript'
     ]
 
 
