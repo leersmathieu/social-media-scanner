@@ -13,19 +13,17 @@ class TweeterConfig:
     access_secret = environ.get('TWITTER_ACCESS_SECRET')
 
     # Bot Settings
-    time_of_publish = 90
-    language = 'fr'
+    time_of_publish = 60
+    language = 'en'
 
     topics = [
         'payday2',
         'coding',
         'deep learning',
         'machine learning',
-        'intelligence artificiel',
-        'python',
-        'javascript',
-        'technologie',
-        'automatisation'
+        'artificial intelligence',
+        'neural network',
+        'technology'
     ]
 
 
