@@ -24,7 +24,7 @@ class TweeterBot:
         # Set the interval of time to get tweets from
         self.last_tweet_time = datetime.now(timezone.utc) - timedelta(minutes=self.retweet_frequency)
 
-    def schedule(self, run_now: bool = False):
+    def schedule(self, run_now: bool = True):
         """
         Start a scheduler which will run the bot every 10 minutes.
 
